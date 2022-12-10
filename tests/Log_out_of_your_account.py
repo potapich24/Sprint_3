@@ -30,5 +30,5 @@ WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located
 
 #Проверяем, что выход осуществлен
 assert driver.find_element(By.XPATH, ".//h2[text()='Вход']").text == 'Вход'
-
+assert driver.find_element(By.XPATH, ".//h2[text()='Вход']").is_displayed()
 driver.quit()

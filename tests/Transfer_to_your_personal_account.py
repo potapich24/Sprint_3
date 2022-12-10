@@ -24,5 +24,5 @@ driver.find_element(By.XPATH, ".//p[text()='Личный Кабинет']").clic
 #Проверям, что открылась страница "Личный кабинет"
 WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//a[text()='Профиль']")))
 assert driver.find_element(By.XPATH, ".//a[text()='Профиль']").text == 'Профиль'
-
+assert driver.find_element(By.XPATH, ".//a[text()='Профиль']").is_displayed()
 driver.quit()

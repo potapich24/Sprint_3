@@ -26,7 +26,7 @@ driver.find_element(By.XPATH, ".//p[text()='Конструктор']").click()
 WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//h1[text()='Соберите бургер']")))
 
 assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").text == 'Соберите бургер'
-
+assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").is_displayed()
 driver.quit()
 
 driver = webdriver.Chrome()
@@ -52,5 +52,5 @@ driver.find_element(By.XPATH, ".//div[@class='AppHeader_header__logo__2D0X2']").
 WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//h1[text()='Соберите бургер']")))
 
 assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").text == 'Соберите бургер'
-
+assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").is_displayed()
 driver.quit()

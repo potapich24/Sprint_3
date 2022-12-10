@@ -15,6 +15,8 @@ driver.find_element(By.XPATH, ".//a[text()='Зарегистрироваться
 
 #Генерируем логин
 new_login = f"mihailandreev{random.randint(0, 999)}@yandex.ru"
+
+#Заполняем поле "Имя"
 driver.find_element(By.XPATH, ".//input[@class='text input__textfield text_type_main-default']").send_keys(("Mihail"))
 
 #Проверяем, что поле "Имя" не пустое
@@ -43,7 +45,9 @@ driver.quit()
 driver = webdriver.Chrome()
 driver.get("https://stellarburgers.nomoreparties.site")
 
+#Входим в аккаунт
 driver.find_element(By.CSS_SELECTOR, ".button_button_size_large__G21Vg").click()
+#Нажимаем на кнопку "Зарегистрироваться"
 driver.find_element(By.XPATH, ".//a[text()='Зарегистрироваться']").click()
 
 #Заполняем поле "Пароль". Длина меньше 6
@@ -54,4 +58,5 @@ driver.find_element(By.XPATH, ".//button[text()='Зарегистрироват�
 
 #Проверяем, что всплывает ошибка "Некорректный пароль", если ввести пароль менее 6 символов
 assert driver.find_element(By.XPATH, ".//p[text()='Некорректный пароль']").text == 'Некорректный пароль'
+assert driver.find_element(By.XPATH, ".//p[text()='Некорректный пароль']").is_displayed()
 driver.quit()

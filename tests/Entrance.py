@@ -19,7 +19,7 @@ driver.find_element(By.XPATH, ".//button[text()='Войти']").click()
 #Проверяем, что вход через "Войти в аккаунт" осуществлен
 WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//h1[text()='Соберите бургер']")))
 assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").text == 'Соберите бургер'
-
+assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").is_displayed()
 driver.quit()
 
 driver = webdriver.Chrome()
@@ -38,7 +38,7 @@ driver.find_element(By.XPATH, ".//button[text()='Войти']").click()
 #Проверяем, что вход через "Личный Кабинет" осуществлен
 WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//h1[text()='Соберите бургер']")))
 assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").text == 'Соберите бургер'
-
+assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").is_displayed()
 driver.quit()
 
 driver = webdriver.Chrome()
@@ -63,7 +63,7 @@ driver.find_element(By.XPATH, ".//button[text()='Войти']").click()
 #Проверяем, что вход через форму регистраци осуществлен
 WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//h1[text()='Соберите бургер']")))
 assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").text == 'Соберите бургер'
-
+assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").is_displayed()
 driver.quit()
 
 driver = webdriver.Chrome()
@@ -88,5 +88,5 @@ driver.find_element(By.XPATH, ".//button[text()='Войти']").click()
 #Проверяем, что вход через форму восстановления пароля осуществлен
 WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//h1[text()='Соберите бургер']")))
 assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").text == 'Соберите бургер'
-
+assert driver.find_element(By.XPATH, ".//h1[text()='Соберите бургер']").is_displayed()
 driver.quit()
