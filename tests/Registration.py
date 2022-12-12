@@ -1,5 +1,7 @@
 import random
 
+from sprint_3.locators import LocatorsForRegistration
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
