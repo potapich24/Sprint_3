@@ -33,8 +33,6 @@ def test_log_out_of_your_account():
     WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((LocatorsForRegistration.HEADING_ENTRANCE)))
 
     #Проверяем, что выход осуществлен
-    assert driver.find_element(*LocatorsForRegistration.HEADING_ENTRANCE).text == 'Вход'
     assert driver.find_element(*LocatorsForRegistration.HEADING_ENTRANCE).is_displayed()
     driver.quit()
 
-test_log_out_of_your_account()

@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class TestSwitchingFromYourPersonalAccountToTheConstructor:
+class TestConstructor:
     def test_switching_the_constructor_button_to_the_constructor(self):
         self.driver = webdriver.Chrome()
         self.driver.get("https://stellarburgers.nomoreparties.site")
