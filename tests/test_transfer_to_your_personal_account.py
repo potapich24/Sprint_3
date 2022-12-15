@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -28,8 +27,6 @@ def test_transfer_to_you_personal_account():
 
     #Проверям, что открылась страница "Личный кабинет"
     WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((LocatrsForTransferToYouPersonalAccount.HEADING_PROFILE)))
-    assert driver.find_element(*LocatrsForTransferToYouPersonalAccount.HEADING_PROFILE).text == 'Профиль'
     assert driver.find_element(*LocatrsForTransferToYouPersonalAccount.HEADING_PROFILE).is_displayed()
     driver.quit()
 
-test_transfer_to_you_personal_account()
