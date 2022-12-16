@@ -6,10 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-def test_log_out_of_your_account():
-    driver = webdriver.Chrome()
-    driver.get("https://stellarburgers.nomoreparties.site")
-
+def test_log_out_of_your_account(driver):
     #Нажимаем на кнопку "Войти в аккаунт"
     driver.find_element(*LocatorsForRegistration.BUTTON_SIGN_IN_TO_ACCOUNT).click()
 
@@ -34,5 +31,5 @@ def test_log_out_of_your_account():
 
     #Проверяем, что выход осуществлен
     assert driver.find_element(*LocatorsForRegistration.HEADING_ENTRANCE).is_displayed()
-    driver.quit()
+
 

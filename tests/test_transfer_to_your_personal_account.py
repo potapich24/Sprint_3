@@ -6,10 +6,7 @@ from locators import LocatrsForTransferToYouPersonalAccount
 from locators import LocatorsForRegistration
 from locators import LocatorsForEntrance
 
-def test_transfer_to_you_personal_account():
-    driver = webdriver.Chrome()
-    driver.get("https://stellarburgers.nomoreparties.site")
-
+def test_transfer_to_you_personal_account(driver):
     #Нажимаем на кнопку "Войти в аккаунт"
     driver.find_element(*LocatorsForRegistration.BUTTON_SIGN_IN_TO_ACCOUNT).click()
 
@@ -28,5 +25,5 @@ def test_transfer_to_you_personal_account():
     #Проверям, что открылась страница "Личный кабинет"
     WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((LocatrsForTransferToYouPersonalAccount.HEADING_PROFILE)))
     assert driver.find_element(*LocatrsForTransferToYouPersonalAccount.HEADING_PROFILE).is_displayed()
-    driver.quit()
+
 

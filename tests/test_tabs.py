@@ -4,49 +4,37 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-class TestTabs:
-    def test_section_constructor_fillings(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get("https://stellarburgers.nomoreparties.site")
+def test_section_constructor_fillings(driver):
+    WebDriverWait(driver, 6).until_not(expected_conditions.visibility_of_element_located((LocatorsForSectionConstructor.PRELOADING)))
 
-        WebDriverWait(self.driver, 6).until_not(expected_conditions.visibility_of_element_located((LocatorsForSectionConstructor.PRELOADING)))
+    #Кликаем на раздел "Начинки"
+    driver.find_element(*LocatorsForSectionConstructor.TAB_FILLINGS).click()
 
-        #Кликаем на раздел "Начинки"
-        self.driver.find_element(*LocatorsForSectionConstructor.TAB_FILLINGS).click()
+    #Проверям, что раздел "Начинки" открылся
+    assert driver.find_element(*LocatorsForSectionConstructor.SELECTED_TAB).text == 'Начинки'
 
-        #Проверям, что раздел "Начинки" открылся
-        assert self.driver.find_element(*LocatorsForSectionConstructor.SELECTED_TAB_FILLINGS).text == 'Начинки'
 
-        self.driver.quit()
+def test_section_constructor_rolls(driver):
+    WebDriverWait(driver, 6).until_not(expected_conditions.visibility_of_element_located((LocatorsForSectionConstructor.PRELOADING)))
 
-    def test_section_constructor_rolls(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get("https://stellarburgers.nomoreparties.site")
+    #Кликаем на раздел "Соусы"
+    driver.find_element(*LocatorsForSectionConstructor.TAB_SAUCES).click()
 
-        WebDriverWait(self.driver, 6).until_not(expected_conditions.visibility_of_element_located((LocatorsForSectionConstructor.PRELOADING)))
+    #Кликаем на раздел "Булки"
+    driver.find_element(*LocatorsForSectionConstructor.TAB_ROLLS).click()
 
-        #Кликаем на раздел "Соусы"
-        self.driver.find_element(*LocatorsForSectionConstructor.TAB_SAUCES).click()
+    #Проверяем, что раздел "Булки" открылся
+    assert driver.find_element(*LocatorsForSectionConstructor.SELECTED_TAB).text == 'Булки'
 
-        #Кликаем на раздел "Булки"
-        self.driver.find_element(*LocatorsForSectionConstructor.TAB_ROLLS).click()
 
-        #Проверяем, что раздел "Булки" открылся
-        assert self.driver.find_element(*LocatorsForSectionConstructor.SELECTED_TAB_ROLLS).text == 'Булки'
+def test_section_constructor_sauces(driver):
+    WebDriverWait(driver, 6).until_not(expected_conditions.visibility_of_element_located((LocatorsForSectionConstructor.PRELOADING)))
 
-        self.driver.quit()
+    #Кликаем на раздел "Соусы"
+    driver.find_element(*LocatorsForSectionConstructor.TAB_SAUCES).click()
 
-    def test_section_constructor_sauces(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get("https://stellarburgers.nomoreparties.site")
+    #Проверяем, что раздел "Соусы" открылся
+    assert driver.find_element(*LocatorsForSectionConstructor.SELECTED_TAB).text == 'Соусы'
 
-        WebDriverWait(self.driver, 6).until_not(expected_conditions.visibility_of_element_located((LocatorsForSectionConstructor.PRELOADING)))
 
-        #Кликаем на раздел "Соусы"
-        self.driver.find_element(*LocatorsForSectionConstructor.TAB_SAUCES).click()
-
-        #Проверяем, что раздел "Соусы" открылся
-        assert self.driver.find_element(*LocatorsForSectionConstructor.SELECTED_TAB_SAUCES).text == 'Соусы'
-
-        self.driver.quit()
 
